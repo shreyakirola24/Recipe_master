@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback Display</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 20px; /* Space below the title */
+        }
+
+        #feedback-display {
+            background-color: #ffffff; /* Background color for the feedback container */
+            border-radius: 8px; /* Rounded corners */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            margin: 20px auto; /* Centering the container with top and bottom margin */
+            padding: 20px; /* Inner padding */
+            width: 80%; /* Responsive width */
+            max-width: 600px; /* Maximum width for larger screens */
+            text-align: left; /* Left align text for readability */
+        }
+
+        .feedback-item {
+            border-bottom: 1px solid #eee; /* Divider between feedback items */
+            padding: 10px 0; /* Vertical spacing for feedback items */
+        }
+
+        .feedback-item:last-child {
+            border-bottom: none; /* Remove bottom border for the last item */
+        }
+
+        .thank-you-message {
+            margin-top: 20px; /* Margin for the thank you message */
+            font-size: 18px; /* Font size for the message */
+            color: #27ae60; /* Green color for the thank you message */
+            text-align: center; /* Center the message */
+            font-weight: bold; /* Bold text for emphasis */
+        }
+
+        /* Media query for smaller screens */
+        @media (max-width: 600px) {
+            #feedback-display {
+                width: 90%; /* Adjust width for smaller screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Feedback Display</h1>
+    <div id="feedback-display"></div>
+    <div class="thank-you-message">Thank you for your feedback!</div>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const feedbackDisplay = document.getElementById("feedback-display");
+            const name = localStorage.getItem("feedbackName");
+            const message = localStorage.getItem("feedbackMessage");
+
+            if (feedbackDisplay) {
+                if (name && message) {
+                    feedbackDisplay.innerHTML = `
+                        <div class="feedback-item">
+                            <strong>Name:</strong> ${name}<br>
+                            <strong>Message:</strong> ${message}
+                        </div>`;
+                } else {
+                    feedbackDisplay.innerHTML = '<p>No feedback available.</p>';
+                }
+            }
+
+            // Clear localStorage (optional based on your flow)
+            localStorage.removeItem("feedbackName");
+            localStorage.removeItem("feedbackMessage");
+        });
+    </script>
+</body>
+</html>

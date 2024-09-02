@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthy Campus Recipes</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Healthy Campus Recipes Website</h1>
+        <p>
+            Explore a variety of healthy recipes which we can make in our campus , categorized into Breakfast, Lunch, Snacks, Dessert, and Dinner. Click a button below to view the recipes for each category.
+        </p>
+        <input type="text" id="search-bar" placeholder="Search recipes...">
+    </header>
+    <nav class="category-nav">
+        <button class="category-button" data-category="Breakfast">Breakfast</button>
+        <button class="category-button" data-category="Lunch">Lunch</button>
+        <button class="category-button" data-category="Dinner">Dinner</button>
+        <button class="category-button" data-category="Snacks">Snacks</button>
+        <button class="category-button" data-category="Dessert">Dessert</button>
+    </nav>
+    <section id="home-section" class="content-section">
+        <div id="recipe-list"></div>
+    </section>
+
+    <section id="add-recipe-section" class="content-section" style="display: none;">
+        
+        <h2>Add a New Recipe</h2>
+        <form id="recipe-form">
+            <input type="text" id="recipe-name" placeholder="Recipe Name" required>
+            <input type="text" id="recipe-category" placeholder="Category (Breakfast, Lunch, etc.)" required>
+            <textarea id="recipe-ingredients" placeholder="Ingredients" required></textarea>
+            <textarea id="recipe-instructions" placeholder="Instructions" required></textarea>
+            <textarea id="recipe-health-benefits" placeholder="Health Benefits"></textarea>
+            <input type="file" id="recipe-image" accept="image/*" required>
+            <button type="submit">Add Recipe</button>
+        </form>
+    </section>
+
+    <section id="feedback-section" class="content-section" style="display: none;">
+        <h2>Feedback</h2>
+        <form id="feedback-form">
+            <input type="text" id="feedback-name" placeholder="Your Name" required>
+            <textarea id="feedback-message" placeholder="Your Feedback" required></textarea>
+            <button type="submit">Submit Feedback</button>
+        </form>
+    </section>
+    <footer>
+        <nav class="bottom-nav">
+            <button id="home-button">Home</button>
+            <button id="add-recipe-button">Add Recipe</button>
+            <button id="feedback-button">Feedback</button>
+        </nav>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="feedback-display.html"></script>
+</body>
+</html>
